@@ -17,8 +17,8 @@ async def query(request: Request):
         if not prompt:
             return JSONResponse(status_code=400, content={"error": "Missing prompt"})
 
-        response = process_prompt(prompt)
-        return {"response": response}
+        response = await process_prompt(prompt)
+  return {"response": response}
     
     except Exception as e:
         return JSONResponse(status_code=500, content={"error": str(e)})
